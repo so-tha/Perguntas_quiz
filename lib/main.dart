@@ -1,6 +1,9 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import './questao.dart';
 import './resposta.dart';
+
 void main() => runApp(const PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
@@ -10,14 +13,31 @@ class _PerguntaAppState extends State<PerguntaApp> {
     setState(() {
       _perguntaSelecionada++;
     });
-    print(_perguntaSelecionada);
   }
 
   @override
   Widget build(BuildContext context) {
-    final perguntas = [
-      'Qual é a sua cor favorita?',
-      'Qual é o seu animal favorito?',
+    final List<Map<String, Object>> perguntas = [
+      {
+        'texto': 'Qual é sua cor favorita?',
+        'respostas': ['Amarelo', 'Preto', 'Azul'],
+      },
+      {
+        'texto': 'Qual é seu animal favorito?',
+        'respostas': [
+          'Cachorrinhos',
+          'Gatos',
+          'Cavalos'
+        ], //usasse o Object pois a resposta é uma lista
+      },
+      {
+        'texto': 'Qual é minha cantora preferida?',
+        'respostas': [
+          'Taylor Swift',
+          'Beyonce',
+          'Sza'
+        ], //usasse o Object pois a resposta é uma lista
+      },
     ];
 
     return MaterialApp(
@@ -27,7 +47,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: [
-            Questao(perguntas[_perguntaSelecionada]),
+            Questao(perguntas[_perguntaSelecionada]['texto'].call()),
             Resposta('Resposta 1', _responder),
             Resposta('Resposta 2', _responder),
             Resposta('Resposta 3', _responder),
