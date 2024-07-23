@@ -32,13 +32,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
       },
       {
         'texto': 'Qual é minha cantora preferida?',
-        'respostas': [
-          'Taylor Swift',
-          'Beyonce',
-          'Sza'
-        ], //usasse o Object pois a resposta é uma lista
+        'respostas': ['Taylor Swift', 'Beyonce', 'Sza'],
       },
     ];
+
+    List<String> respostas =
+        perguntas[_perguntaSelecionada]['respostas'].call();
 
     return MaterialApp(
       home: Scaffold(
@@ -48,9 +47,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: [
             Questao(perguntas[_perguntaSelecionada]['texto'].call()),
-            Resposta('Resposta 1', _responder),
-            Resposta('Resposta 2', _responder),
-            Resposta('Resposta 3', _responder),
+            ...respostas.map((t) => Resposta(t, _responder)).toList(),
           ],
         ),
       ),
