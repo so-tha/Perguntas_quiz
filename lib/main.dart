@@ -1,9 +1,8 @@
 import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
 
 import 'package:flutter/material.dart';
-import './questao.dart';
-import './resposta.dart';
 import './resultado.dart';
+import './questionario.dart';
 void main() => runApp(const PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
@@ -35,26 +34,23 @@ class _PerguntaAppState extends State<PerguntaApp> {
     });
     }
   }
-
   bool get temPerguntaSelecionada{
     return _perguntaSelecionada < _perguntas.length;
 
   }
+
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = temPerguntaSelecionada ? _perguntas[_perguntaSelecionada]['respostas'].call(): [];
 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Perguntas'),
         ),
-        body:  temPerguntaSelecionada ? Column(
-          children: <Widget> [
-            Questao(_perguntas[_perguntaSelecionada]['texto'].call()),
-            ...respostas.map((t) => Resposta(t, _responder)).toList(),
-          ],
-        )
+        body: temPerguntaSelecionada ? Questionario(
+          perguntas: _perguntas,
+           perguntaSelecionada: _perguntaSelecionada,
+            quandoresponder: _responder) 
         :Resultado(),
         ),
       );
