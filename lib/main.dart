@@ -44,8 +44,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
     });
     }
 
-    print(_pontuacaototal);
+  void _reiniciarQuestionario(){
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaototal = 0;
+    });
   }
+}
   bool get temPerguntaSelecionada{
     return _perguntaSelecionada < _perguntas.length;
 
@@ -59,11 +64,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
         appBar: AppBar(
           title: const Text('Perguntas'),
         ),
-        body: temPerguntaSelecionada ? Questionario(
+        body: temPerguntaSelecionada 
+        ? Questionario(
           perguntas: _perguntas,
            perguntaSelecionada: _perguntaSelecionada,
-            quandoresponder: _responder) 
-        :Resultado(_pontuacaototal),
+            quandoresponder: _responder
+          ) 
+        :Resultado(_pontuacaototal, _reiniciarQuestionario), //comunicação direta
         ),
       );
   }
