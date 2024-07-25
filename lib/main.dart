@@ -12,27 +12,27 @@ class _PerguntaAppState extends State<PerguntaApp> {
       {
         'texto': 'Qual é sua cor favorita?',
         'respostas': [
-        {'texto':'Amarelo', 'nota': 10},
-        {'texto':'Preto', 'nota': 5},
-        {'texto': 'Azul', 'nota': 3},
-        {'texto': 'Rosa', 'nota': 1}],
+        {'texto':'Amarelo', 'pontuação': 10},
+        {'texto':'Preto', 'pontuação': 5},
+        {'texto': 'Azul', 'pontuação': 3},
+        {'texto': 'Rosa', 'pontuação': 1}],
       },
       {
         'texto': 'Qual é seu animal favorito?',
         'respostas': [
-         {'texto': 'Cachorrinhos', 'nota': 10},
-          {'texto':'Gatos', 'nota': 8},
-          {'texto':'Cavalos', 'nota': 1},
-          {'texto':'Bisão', 'nota': 9}
+         {'texto': 'Cachorrinhos', 'pontuação': 10},
+          {'texto':'Gatos', 'pontuação': 8},
+          {'texto':'Cavalos', 'pontuação': 1},
+          {'texto':'Bisão', 'pontuação': 9}
         ], //usasse o Object pois a resposta é uma lista
       },
       {
         'texto': 'Qual é minha cantora preferida?',
         'respostas': [
-        {'texto':'Taylor Swift','nota': 1 },
-        {'texto':'Beyonce', 'nota': 5} , 
-        {'texto':'Sza', 'nota': 10},
-        {'texto':'Duquesa','nota': 8}],
+        {'texto':'Taylor Swift','pontuação': 1 },
+        {'texto':'Beyonce', 'pontuação': 5} , 
+        {'texto':'Sza', 'pontuação': 10},
+        {'texto':'Duquesa','pontuação': 8}],
       },
     ];
 
