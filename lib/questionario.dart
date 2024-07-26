@@ -33,7 +33,7 @@ Questionario({
               return Resposta(
               resp['texto'].toString(),
               () =>
-             quandoresponder(int.parse(resp['pontuacao'].toString())),
+             quandoresponder(resp['pontuacao'] as int),
              );
             }).toList(),
           ],
